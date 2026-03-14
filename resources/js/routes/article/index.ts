@@ -1,4 +1,4 @@
-import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../../../wayfinder'
+import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\ArticleController::index
 * @see app/Http/Controllers/ArticleController.php:11
@@ -40,50 +40,6 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(options),
-    method: 'head',
-})
-
-/**
-* @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
-* @route '/articles'
-*/
-export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(options),
-    method: 'get',
-})
-
-show.definition = {
-    methods: ["get","head"],
-    url: '/articles',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
-* @route '/articles'
-*/
-show.url = (options?: RouteQueryOptions) => {
-    return show.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
-* @route '/articles'
-*/
-show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: show.url(options),
-    method: 'get',
-})
-
-/**
-* @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
-* @route '/articles'
-*/
-show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: show.url(options),
     method: 'head',
 })
 
@@ -179,6 +135,10 @@ destroy.delete = (args: { article: number | { id: number } } | [article: number 
     method: 'delete',
 })
 
-const ArticleController = { index, show, store, destroy }
+const article = {
+    index: Object.assign(index, index),
+    store: Object.assign(store, store),
+    destroy: Object.assign(destroy, destroy),
+}
 
-export default ArticleController
+export default article
