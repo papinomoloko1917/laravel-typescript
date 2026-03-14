@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import Button from '../Components/Button.vue';
-import { index as articlesIndex } from '../actions/App/Http/Controllers/ArticleController';
+import { index as indexArticle } from '../actions/App/Http/Controllers/ArticleController';
 
 
 </script>
@@ -9,12 +8,8 @@ import { index as articlesIndex } from '../actions/App/Http/Controllers/ArticleC
 <template>
     <div class="flex justify-center">
         <div class="flex flex-col gap-5">
-            <h1 class="text-2xl">Главная страница</h1>
-            <Link :href="articlesIndex()">
-                <Button>К статьям</Button>
-            </Link>
+            <h1 class="text-center text-2xl">Главная страница</h1>
+            <Link class="btn btn-sm btn-neutral" :href="indexArticle()">К статьям</Link>
         </div>
-
-
     </div>
 </template>
