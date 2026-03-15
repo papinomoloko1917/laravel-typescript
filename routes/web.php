@@ -13,3 +13,5 @@ Route::get('/articles', [ArticleController::class, 'show'])->name('articles.show
 Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
 
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('article.destroy');
+
+Route::put('article/{article}', [ArticleController::class, 'update'])->name('article.update');

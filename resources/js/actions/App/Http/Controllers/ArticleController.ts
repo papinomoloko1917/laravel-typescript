@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ArticleController::index
-* @see app/Http/Controllers/ArticleController.php:11
+* @see app/Http/Controllers/ArticleController.php:12
 * @route '/article'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ArticleController::index
-* @see app/Http/Controllers/ArticleController.php:11
+* @see app/Http/Controllers/ArticleController.php:12
 * @route '/article'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ArticleController::index
-* @see app/Http/Controllers/ArticleController.php:11
+* @see app/Http/Controllers/ArticleController.php:12
 * @route '/article'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ArticleController::index
-* @see app/Http/Controllers/ArticleController.php:11
+* @see app/Http/Controllers/ArticleController.php:12
 * @route '/article'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
+* @see app/Http/Controllers/ArticleController.php:26
 * @route '/articles'
 */
 export const show = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -60,7 +60,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
+* @see app/Http/Controllers/ArticleController.php:26
 * @route '/articles'
 */
 show.url = (options?: RouteQueryOptions) => {
@@ -69,7 +69,7 @@ show.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
+* @see app/Http/Controllers/ArticleController.php:26
 * @route '/articles'
 */
 show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -79,7 +79,7 @@ show.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\ArticleController::show
-* @see app/Http/Controllers/ArticleController.php:28
+* @see app/Http/Controllers/ArticleController.php:26
 * @route '/articles'
 */
 show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -89,7 +89,7 @@ show.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\ArticleController::store
-* @see app/Http/Controllers/ArticleController.php:16
+* @see app/Http/Controllers/ArticleController.php:17
 * @route '/article'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -104,7 +104,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ArticleController::store
-* @see app/Http/Controllers/ArticleController.php:16
+* @see app/Http/Controllers/ArticleController.php:17
 * @route '/article'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -113,7 +113,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ArticleController::store
-* @see app/Http/Controllers/ArticleController.php:16
+* @see app/Http/Controllers/ArticleController.php:17
 * @route '/article'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\ArticleController::destroy
-* @see app/Http/Controllers/ArticleController.php:35
+* @see app/Http/Controllers/ArticleController.php:41
 * @route '/articles/{article}'
 */
 export const destroy = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -138,7 +138,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ArticleController::destroy
-* @see app/Http/Controllers/ArticleController.php:35
+* @see app/Http/Controllers/ArticleController.php:41
 * @route '/articles/{article}'
 */
 destroy.url = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -171,7 +171,7 @@ destroy.url = (args: { article: number | { id: number } } | [article: number | {
 
 /**
 * @see \App\Http\Controllers\ArticleController::destroy
-* @see app/Http/Controllers/ArticleController.php:35
+* @see app/Http/Controllers/ArticleController.php:41
 * @route '/articles/{article}'
 */
 destroy.delete = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -179,6 +179,64 @@ destroy.delete = (args: { article: number | { id: number } } | [article: number 
     method: 'delete',
 })
 
-const ArticleController = { index, show, store, destroy }
+/**
+* @see \App\Http\Controllers\ArticleController::update
+* @see app/Http/Controllers/ArticleController.php:33
+* @route '/article/{article}'
+*/
+export const update = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: update.url(args, options),
+    method: 'put',
+})
+
+update.definition = {
+    methods: ["put"],
+    url: '/article/{article}',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\ArticleController::update
+* @see app/Http/Controllers/ArticleController.php:33
+* @route '/article/{article}'
+*/
+update.url = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { article: args }
+    }
+
+    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+        args = { article: args.id }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            article: args[0],
+        }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+        article: typeof args.article === 'object'
+        ? args.article.id
+        : args.article,
+    }
+
+    return update.definition.url
+            .replace('{article}', parsedArgs.article.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ArticleController::update
+* @see app/Http/Controllers/ArticleController.php:33
+* @route '/article/{article}'
+*/
+update.put = (args: { article: number | { id: number } } | [article: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: update.url(args, options),
+    method: 'put',
+})
+
+const ArticleController = { index, show, store, destroy, update }
 
 export default ArticleController
