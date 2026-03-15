@@ -34,7 +34,7 @@ class ArticleController extends Controller
   {
     $validated = $request->validated();
     $article->update($validated);
-    return redirect()->route('article.store')
+    return redirect()->route('articles.show')
       ->with('success', 'Статья отредактирована');
   }
 
@@ -42,7 +42,7 @@ class ArticleController extends Controller
   {
     $article->delete();
 
-    return redirect()->route('article.store')
+    return redirect()->route('articles.show')
       ->with('success', 'Статья удалена');
   }
 }

@@ -12,21 +12,6 @@ class StoreArticleRequest extends FormRequest
     return true;
   }
 
-  public function prepareForValidation()
-  {
-    $this->merge([
-      'title' => 'lll' . ($this->title)
-    ]);
-  }
-
-  protected function passedValidation()
-  {
-    $this->replace([
-      'title' => strtoupper($this->title),
-      'content' => $this->content
-    ]);
-  }
-
   /**
    * Get the validation rules that apply to the request.
    *

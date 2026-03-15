@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TestController;
 
 Route::get('/', MainController::class)->name('main');
 
@@ -15,3 +16,5 @@ Route::post('/article', [ArticleController::class, 'store'])->name('article.stor
 Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('article.destroy');
 
 Route::put('article/{article}', [ArticleController::class, 'update'])->name('article.update');
+
+Route::get('/test', [TestController::class, 'index'])->name('test');
