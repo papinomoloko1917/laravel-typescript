@@ -44,46 +44,46 @@ main.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see \App\Http\Controllers\TestController::test
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::products
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
-export const test = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: test.url(options),
+export const products = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: products.url(options),
     method: 'get',
 })
 
-test.definition = {
+products.definition = {
     methods: ["get","head"],
-    url: '/test',
+    url: '/products',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\TestController::test
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::products
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
-test.url = (options?: RouteQueryOptions) => {
-    return test.definition.url + queryParams(options)
+products.url = (options?: RouteQueryOptions) => {
+    return products.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Http\Controllers\TestController::test
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::products
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
-test.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: test.url(options),
+products.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: products.url(options),
     method: 'get',
 })
 
 /**
-* @see \App\Http\Controllers\TestController::test
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::products
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
-test.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: test.url(options),
+products.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: products.url(options),
     method: 'head',
 })
 

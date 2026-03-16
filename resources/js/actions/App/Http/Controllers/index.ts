@@ -1,11 +1,9 @@
 import MainController from './MainController'
-import ArticleController from './ArticleController'
-import TestController from './TestController'
+import ProductController from './ProductController'
 
 const Controllers = {
     MainController: Object.assign(MainController, MainController),
-    ArticleController: Object.assign(ArticleController, ArticleController),
-    TestController: Object.assign(TestController, TestController),
+    ProductController: Object.assign(ProductController, ProductController),
 }
 
 export default Controllers

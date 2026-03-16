@@ -1,8 +1,8 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../../../wayfinder'
 /**
-* @see \App\Http\Controllers\TestController::index
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::index
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
@@ -11,22 +11,22 @@ export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 index.definition = {
     methods: ["get","head"],
-    url: '/test',
+    url: '/products',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see \App\Http\Controllers\TestController::index
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::index
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
 index.url = (options?: RouteQueryOptions) => {
     return index.definition.url + queryParams(options)
 }
 
 /**
-* @see \App\Http\Controllers\TestController::index
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::index
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: index.url(options),
@@ -34,15 +34,15 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see \App\Http\Controllers\TestController::index
-* @see app/Http/Controllers/TestController.php:10
-* @route '/test'
+* @see \App\Http\Controllers\ProductController::index
+* @see app/Http/Controllers/ProductController.php:11
+* @route '/products'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: index.url(options),
     method: 'head',
 })
 
-const TestController = { index }
+const ProductController = { index }
 
-export default TestController
+export default ProductController

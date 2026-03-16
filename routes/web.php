@@ -1,20 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\TestController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
 
 Route::get('/', MainController::class)->name('main');
 
-Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
-
-Route::get('/articles', [ArticleController::class, 'show'])->name('articles.show');
-
-Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
-
-Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('article.destroy');
-
-Route::put('article/{article}', [ArticleController::class, 'update'])->name('article.update');
-
-Route::get('/test', [TestController::class, 'index'])->name('test');
+Route::get('/products', [ProductController::class, 'index'])->name('products');
