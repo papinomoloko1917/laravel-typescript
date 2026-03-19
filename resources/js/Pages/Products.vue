@@ -4,6 +4,7 @@ import { ref } from 'vue';
 import MainController from '../actions/App/Http/Controllers/MainController';
 import Paginator from '../Components/Paginator.vue';
 import ProductCard from '../Components/ProductCard.vue';
+import { useCartStore } from '../stores/cart';
 import type { Pagination } from '../types/pagination';
 import type { Product } from '../types/product';
 
@@ -12,9 +13,10 @@ const { products } = defineProps<{
 }>();
 
 const activeProductId = ref<number | null>(null);
+const cartStore = useCartStore();
 
 function handleAdd(payload: { productId: number, count: number }): void {
-  console.log(payload.productId, payload.count)
+  cartStore.addProduct(payload.productId, payload.count)
 }
 
 </script>

@@ -87,3 +87,47 @@ products.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 
+/**
+* @see \App\Http\Controllers\CartController::cart
+* @see app/Http/Controllers/CartController.php:10
+* @route '/cart'
+*/
+export const cart = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cart.url(options),
+    method: 'get',
+})
+
+cart.definition = {
+    methods: ["get","head"],
+    url: '/cart',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\CartController::cart
+* @see app/Http/Controllers/CartController.php:10
+* @route '/cart'
+*/
+cart.url = (options?: RouteQueryOptions) => {
+    return cart.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\CartController::cart
+* @see app/Http/Controllers/CartController.php:10
+* @route '/cart'
+*/
+cart.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: cart.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\CartController::cart
+* @see app/Http/Controllers/CartController.php:10
+* @route '/cart'
+*/
+cart.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: cart.url(options),
+    method: 'head',
+})
+
