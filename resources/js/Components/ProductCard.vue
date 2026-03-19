@@ -10,6 +10,7 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'activate'): void;
   (e: 'deactivate'): void;
+  (e: 'add', payload: { productId: number, count: number }): void;
 }>();
 
 </script>
@@ -25,7 +26,8 @@ const emit = defineEmits<{
       <h2 class="card-title">{{ product.title }}</h2>
       <p>{{ product.description }}</p>
       <div class="card-actions justify-end">
-        <ButtonAddProduct :is-active="isActive" @activate="$emit('activate')" @deactivate="$emit('deactivate')" />
+        <ButtonAddProduct :is-active="isActive" @activate="$emit('activate')" @deactivate="$emit('deactivate')"
+          @add="count => $emit('add', { productId: product.id, count })" />
       </div>
     </div>
   </div>
